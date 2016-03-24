@@ -1,3 +1,6 @@
+class LayoutRenderer
+end
+
 class ApplicationController
   # This default ApplicationController is here to give you some helper methods
   # This means if your controller inherits from ApplicationController (which they should)
@@ -15,8 +18,16 @@ class ApplicationController
   end
 
   def render_template(location, opts = {})
+    layout = ERB.new(File.read("app/views/layouts/application.html.erb"))
+    layout.def_method(LayoutRenderer, 'render')
+
     template = ERB.new(File.read("app/views/" + location))
-    render(template.result(binding), opts.merge({ as: "text/html" }))
+
+    result = LayoutRenderer.new.render do
+      template.result(binding)
+    end
+
+    render(result, opts.merge({ as: "text/html" }))
   end
 
   def redirect_to(location)
