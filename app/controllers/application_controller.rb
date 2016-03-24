@@ -17,6 +17,10 @@ class ApplicationController
     @request[:params]
   end
 
+  def redirect_to(location)
+    render('', status: '303 See Other', as: 'text/html', location: location)
+  end
+
   def render_template(location, opts = {})
     layout = ERB.new(File.read("app/views/layouts/application.html.erb"))
     layout.def_method(LayoutRenderer, 'render')
@@ -27,11 +31,12 @@ class ApplicationController
       template.result(binding)
     end
 
-    render(result, opts.merge({ as: "text/html" }))
+    render(result, { as: "text/html" }.merge(opts))
   end
 
-  def redirect_to(location)
-    render('', status: '303 See Other', as: 'text/html', location: location)
+  def render_partial(location, opts = {})
+    partial = ERB.new(File.read("app/views/#{location}"))
+    partial.result(binding)
   end
 
   def render(body, opts = {})
