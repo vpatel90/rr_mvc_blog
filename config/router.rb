@@ -16,6 +16,8 @@ class Router
     #
     # Put your routes in this array using the get, post, put, delete methods below. (remember order matters)
     [
+      post('/tweets', TweetsController, :create),
+      get('/tweets/new', TweetsController, :new),
       get('/tweets/:id', TweetsController, :show),
       get('/tweets', TweetsController, :index),
       get('/not_here', TweetsController, :not_here)
@@ -91,7 +93,7 @@ class Router
 
   def con(str)
     return str unless str.include?(':')
-    str.gsub!(/(?:(?::.+[\/]([^:]+))|(:.+(.+)$))/) do
+    updated_str = str.gsub(/(?:(?::.+[\/]([^:]+))|(:.+(.+)$))/) do
       first_match = Regexp.last_match[1]
       if first_match.nil?
         "(.+)"
@@ -99,6 +101,6 @@ class Router
         "(.+)/#{first_match}"
       end
     end
-    con(str)
+    con(updated_str)
   end
 end

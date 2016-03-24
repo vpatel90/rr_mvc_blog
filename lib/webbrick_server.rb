@@ -1,12 +1,28 @@
 include WEBrick
 class WEBBrickServer < HTTPServlet::AbstractServlet
-  def do_GET(raw_request, raw_response)
+  def do_GET(raw_request, raw_response)    process(raw_request, raw_response); end
+  def do_PUT(raw_request, raw_response)    process(raw_request, raw_response); end
+  def do_POST(raw_request, raw_response)   process(raw_request, raw_response); end
+  def do_DELETE(raw_request, raw_response) process(raw_request, raw_response); end
+
+  def process(raw_request, raw_response)
     request = {}
     request.store(:method, raw_request.request_method)
     request.store(:route, raw_request.path)
     request.store(:paths, request[:route].split('/').reject(&:empty?))
     request.store(:raw_request, raw_request)
+    request.store(:referer, raw_request["Referer"])
     request.store(:params, {})
+
+    if raw_request.body && raw_request.body.length > 1
+      raw_request.body
+        .gsub('+', ' ')
+        .split('&')
+        .map { |field| field.split("=") }
+        .each do |field_name, field_value|
+          request[:params].store(field_name.to_sym, URI.decode(field_value))
+        end
+    end
 
     return if request[:route] =~ /favicon/ # Do not process a favicon request
 
@@ -27,10 +43,6 @@ class WEBBrickServer < HTTPServlet::AbstractServlet
     raw_response.content_type = response[:as]
     raw_response.content_length = response[:body].to_s.bytesize
     raw_response.body = response[:body]
-  end
-
-  def do_POST(request, response)
-
   end
 
   private

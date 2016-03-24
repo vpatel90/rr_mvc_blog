@@ -1,6 +1,7 @@
 require 'webrick'
 require 'socket'
 require 'timeout'
+require 'uri'
 require 'erb'
 require 'json'
 require 'pry'
