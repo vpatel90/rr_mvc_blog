@@ -16,6 +16,7 @@ class Router
     #
     # Put your routes in this array using the get, post, put, delete methods below. (remember order matters)
     [
+      get('/tweets/:id', TweetsController, :show),
       get('/tweets', TweetsController, :index),
     ].find(&:itself)
   end
@@ -24,24 +25,28 @@ class Router
 
   def get(url_str, resource, action)
     if get? && route_match?(url_str)
+      fill_params(url_str)
       send_to_controller(resource, action)
     end
   end
 
   def post(url_str, resource, action)
     if post? && route_match?(url_str)
+      fill_params(url_str)
       send_to_controller(resource, action)
     end
   end
 
   def put(url_str, resource, action)
     if put? && route_match?(url_str)
+      fill_params(url_str)
       send_to_controller(resource, action)
     end
   end
 
   def delete(url_str, resource, action)
     if delete? && route_match?(url_str)
+      fill_params(url_str)
       send_to_controller(resource, action)
     end
   end
@@ -62,6 +67,15 @@ class Router
     @request[:method] == "DELETE"
   end
 
+  def fill_params(url)
+    params = Hash[url[1..-1]
+              .split('/')
+              .zip(@request[:paths])
+              .select { |key, value| key[0] == ":" }
+              .map { |key, value| [key[1..-1].to_sym, value] }]
+    @request[:params].merge!(params)
+  end
+
   def send_to_controller(resource, action)
     @request[:params].merge!({
       controller_name: resource.to_s,
@@ -71,6 +85,19 @@ class Router
   end
 
   def route_match?(url)
-    @request[:route] =~ Regexp.new("^#{url.gsub(/:.+?[\w(\/.+)]/, '(.+)\1')}$")
+    @request[:route] =~ Regexp.new("^#{con(url)}$")
+  end
+
+  def con(str)
+    return str unless str.include?(':')
+    str.gsub!(/(?:(?::.+[\/]([^:]+))|(:.+(.+)$))/) do
+      first_match = Regexp.last_match[1]
+      if first_match.nil?
+        "(.+)"
+      else
+        "(.+)/#{first_match}"
+      end
+    end
+    con(str)
   end
 end

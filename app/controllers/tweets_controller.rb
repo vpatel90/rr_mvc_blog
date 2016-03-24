@@ -11,4 +11,15 @@ class TweetsController < ApplicationController
     # By default, all render calls will make the status "200 OK", you only need
     # to add a status if you are changing from "200 OK" to something else.
   end
+
+  def show
+    @tweet = App.tweets.find { |x| x[:id] == params[:id].to_i }
+    render_template "show.html.erb"
+  end
+
+  def nonsense
+    @tweet = App.tweets.find { |x| x[:id] == params[:id].to_i }
+    @params = params
+    render_template "show.html.erb"
+  end
 end
