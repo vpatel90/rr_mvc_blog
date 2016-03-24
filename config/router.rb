@@ -23,10 +23,33 @@ class Router
       get('/not_here', TweetsController, :not_here), # This is to demo the new redirect_to method
 
       get('/assets/:type/:name', AssetsController, :handle)
-    ].find(&:itself)
+    ].flatten.find(&:itself)
   end
 
   private # No need to edit these, but feel free to read them to see how they work
+
+  def api_resource(name, controller)
+    [
+      post("/#{name}",       controller, :create),
+      delete("/#{name}/:id", controller, :destroy),
+      put("/#{name}/:id",    controller, :update),
+      get("/#{name}/:id",    controller, :show),
+      get("/#{name}",        controller, :index),
+    ]
+  end
+
+  def resource(name, controller)
+    [
+      post("/#{name}",            controller, :create),
+      post("/#{name}/:id/delete", controller, :destroy), #will be DELETE in rails
+      post("/#{name}/:id",        controller, :update), #will be PUT in Rails
+
+      get("/#{name}/:id/edit",    controller, :edit),
+      get("/#{name}/new",         controller, :new),
+      get("/#{name}/:id",         controller, :show),
+      get("/#{name}",             controller, :index),
+    ]
+  end
 
   def get(url_str, resource, action)
     if get? && route_match?(url_str)
