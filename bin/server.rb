@@ -28,6 +28,18 @@ module AllPosts
     @all_posts ||= [
       Post.new("Post 1", "Vivek", Lorem::L),
       Post.new("Post 2", "Abby", Lorem::O),
+      Post.new("Post 3", "Van", Lorem::R),
+      Post.new("Post 4", "Dane", Lorem::E),
+      Post.new("Post 5", "Nightmaretron", Lorem::M),
+      Post.new("Post 6", "Andrew", Lorem::L),
+      Post.new("Post 7", "Kat", Lorem::O),
+      Post.new("Post 8", "Abby", Lorem::R),
+      Post.new("Post 9", "Vivek", Lorem::E),
+      Post.new("Post 10", "Abby", Lorem::M),
+      Post.new("Post 11", "Vivek", Lorem::L),
+      Post.new("Post 12", "Tychus", Lorem::O),
+      Post.new("Post 13", "Moralas", Lorem::R),
+      Post.new("Post 14", "Li Ming", Lorem::E),
     ]
   end
 end

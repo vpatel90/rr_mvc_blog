@@ -1,8 +1,11 @@
 <% @all_posts.each do |post| %>
 <h1> <a href="posts/<%= post.id %>"> <%= post.title %> </a></h1>
 <p> by: <%= post.author %> </p>
+<p> <%= post.body[0...300] %> </p>
+<small> <a href="posts/<%= post.id %>"> read more </a> </small>
 <% end %>
 
+<br><br>
 <form action='posts/new' method="get" accept-charset="utf-8" id='new-post'>
-  <input type='submit'  />
+  <input type='submit' value='New Post'/>
 </form>

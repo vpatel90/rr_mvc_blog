@@ -31,6 +31,14 @@ class PostsController < ApplicationController
 
   end
 
+  def published
+
+  end
+
+  def unpublished
+
+  end
+
   private
   def get_all_posts
     AllPosts.posts
@@ -38,6 +46,14 @@ class PostsController < ApplicationController
 
   def get_post_at_id
     get_all_posts.find {|post| post.id == params[:id].to_i}
+  end
+
+  def get_published_posts
+
+  end
+
+  def get_unpublished_posts
+
   end
 
 end

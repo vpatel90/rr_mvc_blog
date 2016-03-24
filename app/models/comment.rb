@@ -11,7 +11,7 @@ class Comment
     post.comments << self
   end
 
-  def to_json
+  def to_json(_ = nil)
     {
       id: id,
       author: author,

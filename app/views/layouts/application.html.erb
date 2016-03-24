@@ -6,6 +6,18 @@
     <link media="screen" rel="stylesheet" href="/assets/stylesheets/application.css"  />
   </head>
   <body>
+    <nav class="nav">
+      <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/posts/published">Published Tasks</a></li>
+      <li><a href="/posts/unpublished">Unpublished Tasks</a></li>
+      <li>
+        <form action='posts/new' method="get" accept-charset="utf-8" id='new-post'>
+          <input type='submit' value='New Post'/>
+        </form>
+        </li>
+    </ul>
+    </nav>
     <!-- Ruby will place one of my templates inside of this file, right here where I call "yield"  -->
     <%= yield %>
   </body>

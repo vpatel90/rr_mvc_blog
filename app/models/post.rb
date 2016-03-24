@@ -12,7 +12,7 @@ class Post
     @comments = []
   end
 
-  def to_json
+  def to_json(_ = nil)
     {
       id: id,
       title: title,
