@@ -1,0 +1,7 @@
+module Lorem
+  L = "Lorem ipsum dolor sit amet, et aeque harum evertitur duo, fierent consectetuer ea pro. Nec eu facer persequeris reprehendunt. An putent alienum eloquentiam has. Per ut vide aperiri inimicus, est ne graeco sadipscing."
+  O = "Ius ne paulo tempor appareat. Ut sed omnis virtute delicata. Sed tollit periculis intellegat et, mucius facilisi facilisis eam ut, te animal debitis eos. Pri in debitis temporibus, nec insolens gloriatur ea, nam quis scripta corpora eu. Cu quo noster utamur."
+  R = "Convenire mnesarchum in ius, tollit ignota qui eu, ei dolorem dolores ius. Nec sale autem rationibus eu, at sed rebum dictas officiis. Eu vel discere lucilius, ius omnis dissentias ex. An duo clita ullamcorper, vel aeque similique reprehendunt et. Id facilisi delicatissimi his. At pri discere signiferumque."
+  E = "Pro diceret ullamcorper instructior cu, et pro altera timeam deserunt, tale duis periculis id sit. Et his vivendo delectus, has democritum theophrastus ei. Ex omnes docendi voluptua eam, denique pericula qui no. Eum integre facilisi te, at mea vidit corrumpit. Eu sed wisi omnium, causae efficiantur at cum. Ut pro bonorum molestie. Partem consulatu scripserit mei at."
+  M = "Vel eu choro nemore officiis. Eam at possit facete. Nam quaestio atomorum voluptatum in, te liber adipisci sed, et eos invidunt expetenda. Mei cu decore legere iriure. Ad probo reprehendunt pri, no viderer dignissim mediocritatem sit. Reque animal te sed, an viderer maiorum per, at tincidunt vituperata scribentur mel."
+end

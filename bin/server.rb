@@ -22,6 +22,15 @@ module App
   end
 end
 
+module AllPosts
+  def AllPosts.posts
+    @all_posts ||= [
+      Post.new("Post 1", "Vivek", Lorem::L),
+      Post.new("Post 2", "Abby", Lorem::O),
+    ]
+  end
+end
+
 system('clear')
 
 def start_custom_webbrick_server
