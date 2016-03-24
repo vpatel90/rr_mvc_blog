@@ -17,9 +17,7 @@ class TweetsController < ApplicationController
     render_template "show.html.erb"
   end
 
-  def nonsense
-    @tweet = App.tweets.find { |x| x[:id] == params[:id].to_i }
-    @params = params
-    render_template "show.html.erb"
+  def not_here
+    redirect_to '/tweets'
   end
 end

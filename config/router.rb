@@ -18,6 +18,7 @@ class Router
     [
       get('/tweets/:id', TweetsController, :show),
       get('/tweets', TweetsController, :index),
+      get('/not_here', TweetsController, :not_here)
     ].find(&:itself)
   end
 

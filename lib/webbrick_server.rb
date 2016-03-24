@@ -23,6 +23,7 @@ class WEBBrickServer < HTTPServlet::AbstractServlet
     end
 
     raw_response.status = response[:status]
+    raw_response["Location"] = response[:location] if response[:location]
     raw_response.content_type = response[:as]
     raw_response.content_length = response[:body].to_s.bytesize
     raw_response.body = response[:body]

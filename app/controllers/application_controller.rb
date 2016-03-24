@@ -19,10 +19,15 @@ class ApplicationController
     render(template.result(binding), opts.merge({ as: "text/html" }))
   end
 
+  def redirect_to(location)
+    render('', status: '303 See Other', as: 'text/html', location: location)
+  end
+
   def render(body, opts = {})
     {
       body: body,
       status: opts.fetch(:status, "200 OK"),
+      location: opts[:location],
       as: opts.fetch(:as, "application/json")
     }
   end
