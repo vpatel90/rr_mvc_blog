@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     @all_posts = get_all_posts
-    render_template 'index.html.erb'
+    render_template 'blog/index.html.erb'
   end
 
   def show

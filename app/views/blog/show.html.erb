@@ -1,0 +1,10 @@
+<h1> <%= @post.title %> </h1>
+<p> by: <%= @post.author %> </p>
+<p> <%= @post.body %> </p>
+<hr>
+<h3> Comments </h3>
+<ul>
+  <% @post.comments.each do |comment| %>
+  <li> <div> <%= comment.author %> - <%= comment.time %> </div> <%= comment.body %> </li>
+  <% end %>
+</ul>

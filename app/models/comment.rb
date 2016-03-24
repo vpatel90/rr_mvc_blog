@@ -1,9 +1,10 @@
 $id_c = 1
 class Comment
-  attr_accessor :id, :author, :body# :comments
-  def initialize(title, author, body, post)
+  attr_accessor :id, :time, :author, :body# :comments
+  def initialize(author, body, post)
     @id = $id_c
     $id_c += 1
+    @time = Time.now
     @author = author
     @body = body
     @post_id = post.id

@@ -9,6 +9,7 @@ require_relative '../config/router'
 require_relative '../app/controllers/application_controller'
 require_relative '../lib/all'
 
+
 module App
   # Place all data here inside of a method
   def App.tweets
@@ -28,6 +29,11 @@ module AllPosts
       Post.new("Post 1", "Vivek", Lorem::L),
       Post.new("Post 2", "Abby", Lorem::O),
     ]
+  end
+end
+AllPosts.posts.each do |post|
+  rand(1..3).times do
+    Comment.new("hi guy", Lorem::C1.sample, post)
   end
 end
 

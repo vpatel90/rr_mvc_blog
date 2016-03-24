@@ -42,12 +42,13 @@ class Router
 
   def resource(name, controller)
     [
+      get("/#{name}/new",         controller, :new),
+
       post("/#{name}",            controller, :create),
       post("/#{name}/:id/delete", controller, :destroy), #will be DELETE in rails
       post("/#{name}/:id",        controller, :update), #will be PUT in Rails
 
       get("/#{name}/:id/edit",    controller, :edit),
-      get("/#{name}/new",         controller, :new),
       get("/#{name}/:id",         controller, :show),
       get("/#{name}",             controller, :index),
     ]
