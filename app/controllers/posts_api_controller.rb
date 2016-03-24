@@ -1,6 +1,6 @@
 class PostsAPIController < ApplicationController
   def index
-    render 'hi'.to_json
+    render get_all_posts.to_json
   end
 
   def show
@@ -17,6 +17,10 @@ class PostsAPIController < ApplicationController
 
   def destroy
 
+  end
+  private
+  def get_all_posts
+    AllPosts.posts
   end
 
 end
