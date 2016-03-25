@@ -1,22 +1,101 @@
-.nav {
-  padding: 1px 0;
-  text-align: center;
-  background-color: #F0A830;
+ul {
+  margin:0;
 }
+
+body {
+  background-color: #C3D7DF;
+}
+.nav {
+  padding: 0 0;
+  text-align: center;
+  background-color: #6991AC;
+  border: 1px solid #6991AC;
+}
+
 .nav ul li {
+  padding: 15px;
   display: inline-block;
-  margin: 0 30px;
+  margin: 0 15px;
   font-size: 16px;
   vertical-align: middle;
+}
+.nav ul li:hover {
+    background-color: rgba(195,215,223,0.2)
 }
 
 .nav a {
   text-decoration: none;
-  color: #5E412F;
+  color: #F5F5F5;
 }
 
 .nav form {
   color: #5E412F;
   float: right;
   margin-bottom: 0;
+}
+
+.new-post {
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.main1 {
+  padding: 0 20%;
+}
+
+.main1 h1 {
+  margin-bottom: 0;
+  color :#D75C37;
+}
+.main1 h1 a{
+  text-decoration: none;
+  color :#D75C37;
+}
+
+article {
+  margin-bottom: 60px;
+
+}
+.author {
+  margin: 5px;
+  color: rgba(0,0,0,0.9);
+  font-size: 14px;
+}
+
+.publish {
+  color: #F5F5F5;
+  font-size: 13px;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-bottom-left-radius: 25%50%;
+  border-bottom-right-radius: 25%50%;
+  border-top-left-radius: 25%50%;
+  border-top-right-radius: 25%50%;
+  background-image: linear-gradient(to bottom, #6991AC, #67727A);
+}
+
+.publish:hover {
+  background-image: linear-gradient(to top, #6991AC, #67727A);
+}
+small a {
+  text-decoration: none;
+  color: rgba(0,0,0,0.7)
+}
+
+small a:hover {
+  color: rgba(0,0,0,0.4)
+}
+
+form input {
+  display: block;
+  width: 400px;
+  margin-bottom: 20px;
+}
+footer {
+  text-align: center;
+  padding: 30px 0;
+}
+footer ul li {
+  margin: 0 3px;
+  display: inline-block;
 }

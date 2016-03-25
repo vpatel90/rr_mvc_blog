@@ -76,6 +76,7 @@ class PostsController < ApplicationController
 
   def render_by_pagination(all_posts)
     @total = (all_posts.size / 10) + 1
+    @start = 0
     if params["limit"].nil? || params["limit"].to_i == 0
       @plimit, @nlimit = 0, 10
       @rendered_posts = all_posts[0,10]

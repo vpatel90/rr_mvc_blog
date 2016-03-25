@@ -1,22 +1,28 @@
-<% if @rendered_posts.size == 0 %>
-<h1> No Posts to Display</h1>
-<% end %>
-<% @rendered_posts.each do |post| %>
-<h1> <a href="/posts/<%= post.id %>"> <%= post.title %> </a> </h1>
-<p> by: <%= post.author %> </p>
-<p> <%= post.body[0...300] %> </p>
-<small> <a href="/posts/<%= post.id %>"> read more </a> </small>
-  <% if post.published == false %>
-  <div><a href="/posts/<%= post.id %>/complete"> Publish </a></div>
+<main class="main1">
+  <% if @rendered_posts.size == 0 %>
+  <h1> No Posts to Display</h1>
   <% end %>
-<% end %>
+  <% @rendered_posts.each do |post| %>
+  <article>
+    <h1> <a href="/posts/<%= post.id %>"> <%= post.title %> </a> </h1>
+    <p class="author"><%= post.author %> </p>
+    <p> <%= post.body[0...300] %>...
+      <small> <a href="/posts/<%= post.id %>"> read more </a> </small> </p>
 
-<br><br>
-<ul>
-  <li><a href="/posts?limit=<%= @plimit %>"> Previous </a></li>
-<% @total.times do |num| %>
-    <% limit = num * 10 %>
-    <li><a href="/posts?limit=<%= limit %>"> <%= num + 1 %> </a></li>
-<% end %>
-  <li><a href="/posts?limit=<%= @nlimit %>"> Next </a></li>
-</ul>
+      <% if post.published == false %>
+      <a class="publish" href="/posts/<%= post.id %>/complete"> Publish </a>
+
+      <% end %>
+  </article>
+  <% end %>
+  <footer>
+    <ul>
+      <li><a href="/posts?limit=<%= @plimit %>"> Previous </a></li>
+    <% (@start...@total).each do |num| %>
+        <% limit = num * 10 %>
+        <li><a href="/posts?limit=<%= limit %>"> <%= num + 1 %> </a></li>
+    <% end %>
+      <li><a href="/posts?limit=<%= @nlimit %>"> Next </a></li>
+    </ul>
+  </footer>
+</main>
