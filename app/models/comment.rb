@@ -8,7 +8,7 @@ class Comment
     @author = author
     @body = body
     @post_id = post.id
-    post.comments << self
+    post.comments.unshift(self)
   end
 
   def to_json(_ = nil)

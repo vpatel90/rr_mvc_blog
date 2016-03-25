@@ -1,5 +1,22 @@
-html, body {
-  margin: 0;
-  font-family: "helvetica";
-  color: #333;
+.nav {
+  padding: 1px 0;
+  text-align: center;
+  background-color: #F0A830;
+}
+.nav ul li {
+  display: inline-block;
+  margin: 0 30px;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #5E412F;
+}
+
+.nav form {
+  color: #5E412F;
+  float: right;
+  margin-bottom: 0;
 }

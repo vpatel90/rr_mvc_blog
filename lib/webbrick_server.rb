@@ -28,7 +28,7 @@ class WEBBrickServer < HTTPServlet::AbstractServlet
         .split('&')
         .map { |field| field.split("=") }
         .each do |field_name, field_value|
-          request[:params].store(field_name.to_sym, URI.decode(field_value))
+          request[:params].store(field_name.to_sym, URI.decode(field_value.to_s))
         end
     end
 

@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = get_post_at_id
+    @error = params["error"]
     if @post
       render_template 'blog/show.html.erb'
     else
@@ -14,23 +15,22 @@ class PostsController < ApplicationController
   end
 
   def new
-    @error = false
+    @error = params["error"]
     render_template "blog/new.html.erb"
   end
 
   def create
-    check_input ## Parser throws an error before getting here
-    new_post = Post.new(params[:title], params[:author], params[:body])
-    get_all_posts << new_post
-    redirect_to "/posts/#{new_post.id}"
+    if invalid_input?
+      redirect_to "/posts/new?error=true"
+    else
+      new_post = Post.new(params[:title], params[:author], params[:body])
+      get_all_posts << new_post
+      redirect_to "/posts/#{new_post.id}"
+    end
   end
 
-  def check_input
-    if params[:title].empty? || params[:author].empty? || params[:body].empty?
-      @error = true
-      render_template "blog/new.html.erb"
-    else
-    end
+  def invalid_input?
+    params[:title].empty? || params[:author].empty? || params[:body].empty?
   end
 
   def update

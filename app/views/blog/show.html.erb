@@ -2,7 +2,18 @@
 <p> by: <%= @post.author %> </p>
 <p> <%= @post.body %> </p>
 <hr>
+<% if @error == "true" %>
+<h4>Your post could not be saved. Please try again</h4>
+<% end %>
 <h3> Comments </h3>
+<form action="/comments" method="post" accept-charset="utf-8" id='new-comment'>
+  <label for='author'>Name</label>
+  <input type='text' name='author' id='author' />
+  <label for='body'>Body</label>
+  <input type='text' name='body' id='body'/>
+  <input type='hidden' name='pid' value="<%= @post.id %>" />
+  <input type='submit' name='commit' id='create_comment' />
+</form>
 <ul>
   <% @post.comments.each do |comment| %>
   <li> <div> <%= comment.author %> - <%= comment.time %> </div> <%= comment.body %> </li>
