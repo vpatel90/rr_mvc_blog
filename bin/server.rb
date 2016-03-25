@@ -44,6 +44,7 @@ module AllPosts
   end
 end
 AllPosts.posts.each do |post|
+  post.published = true if rand(1..3) == 2
   rand(1..3).times do
     Comment.new("hi guy", Lorem::C1.sample, post)
   end

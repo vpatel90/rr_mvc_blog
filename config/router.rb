@@ -16,11 +16,13 @@ class Router
     #
     # Put your routes in this array using the get, post, put, delete methods below. (remember order matters)
     [
-      get('posts/published', PostsController, :published),
-      get('posts/unpublished', PostsController, :unpublished),
+
       get('/', HomeController, :index),
       api_resource('api/posts', PostsAPIController),
+      get('/posts/published', PostsController, :published),
+      get('/posts/unpublished', PostsController, :unpublished),
       resource('posts', PostsController),
+      get('/posts/:id/complete', PostsController, :mark_published),
       post('/tweets', TweetsController, :create),
       get('/tweets/new', TweetsController, :new),
       get('/tweets/:id', TweetsController, :show),
