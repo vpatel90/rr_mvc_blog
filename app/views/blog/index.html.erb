@@ -8,11 +8,6 @@
     <p class="author"><%= post.author %> </p>
     <p> <%= post.body[0...300] %>...
       <small> <a href="/posts/<%= post.id %>"> read more </a> </small> </p>
-
-      <% if post.published == false %>
-      <a class="publish" href="/posts/<%= post.id %>/complete"> Publish </a>
-
-      <% end %>
   </article>
   <% end %>
   <footer>
