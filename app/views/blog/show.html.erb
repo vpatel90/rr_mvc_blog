@@ -2,10 +2,22 @@
   <article>
     <% if @post.published == false %>
     <a class="publish" href="/posts/<%= @post.id %>/complete"> Publish </a>
+    <% link = "/posts/#{@post.id}/edit" %>
+    <a class="publish" id="edit" href="/posts/<%= @post.id %>/edit"> Edit </a>
+    <a class="publish" id="delete" href="/posts/<%= @post.id %>/delete?delete=true"> Delete </a>
     <% end %>
   <h1> <%= @post.title %> </h1>
+  <% if @delete == "true" %>
+  <form action="/posts/<%= @post.id %>/delete" method="post" id="confirm-delete">
+    <label> Are you sure? </label>
+    <input type='submit' name='commit' value="Yes" id='yes_del_post'  />
+    <input type='submit' name='commit' value="No" id='no_del_post'  />
+  </form>
+  <% end %>
   <p class="author"><%= @post.author %> </p>
-  <p> <%= @post.body %> </p>
+    <% @paragraphs.each do |para| %>
+      <p class="blog-post"><%= para %> </p>
+    <% end %>
   </article>
   <% if @post.published %>
     <% if @error == "true" %>

@@ -4,11 +4,12 @@ ul {
 }
 
 body {
-  background-color: #EFF0D1;
+  background-color: #EFF0E2;
   color: #223127;
   line-height: 1.6;
   font-family: 'Roboto', sans-serif;
 }
+
 
 .logo {
   text-decoration: none;
@@ -62,6 +63,7 @@ body {
 .nav a {
   text-decoration: none;
   color: #F5F5F5;
+  opacity: 0.75;
 }
 
 .nav form {
@@ -101,6 +103,7 @@ article {
   border-bottom: 1px solid #223127;
 }
 .author {
+  display: inline-block;
   margin: 5px;
   color: rgba(34,49,39,0.7);
   font-size: 14px;
@@ -118,11 +121,18 @@ article {
   border-bottom-right-radius: 5%20%;
   border-top-left-radius: 5%20%;
   border-top-right-radius: 5%20%;
-  background-image: linear-gradient(to bottom, #6991AC, #67727A);
+  background-image: linear-gradient(to bottom, #889FA6, #223127);
 }
 
 .publish:hover {
-  background-image: linear-gradient(to top, #6991AC, #67727A);
+  background-image: linear-gradient(to top, #889FA6, #223127);
+}
+
+#confirm-delete {
+  float: right;
+  margin-right: 140px;
+  clear: both;
+  padding-left: 20px;
 }
 small a {
   text-decoration: none;
@@ -142,14 +152,14 @@ form input.field{
   margin-bottom: 20px;
   border: 0;
   border-bottom: solid 1px #223127;
-  background-color: #EFF0D1;
+  background-color: #EFF0E2;
 }
 form textarea {
   display: block;
   width: 500px;
   height: 560px;
   margin-bottom: 20px;
-  background-color: #EFF0D1;
+  background-color: #EFF0E2;
 }
 
 form textarea.comment {

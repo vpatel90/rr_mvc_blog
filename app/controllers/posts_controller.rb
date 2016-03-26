@@ -7,11 +7,14 @@ class PostsController < ApplicationController
   def show
     @post = get_post_at_id
     @error = params["error"]
+    @paragraphs = get_paragraphs unless @post.nil?
+
     if @post
       render_template 'blog/show.html.erb'
     else
       render "No Post!", as: 'text/html'
     end
+
   end
 
   def new
@@ -33,12 +36,41 @@ class PostsController < ApplicationController
     params[:title].empty? || params[:author].empty? || params[:body].empty?
   end
 
+  def edit
+    @error = params["error"]
+    @post = get_post_at_id
+    render_template "blog/new.html.erb"
+  end
+
   def update
+    unless params[:commit] == "no" || params[:commit] == "yes"
+      if invalid_input?
+        redirect_to "/posts/#{params[:id]}/edit?error=true"
+      else
+        post = get_post_at_id
+        post.title, post.author, post.body = params[:title], params[:author], params[:body]
+        redirect_to "/posts/#{post.id}"
+      end
+    else
+    end
 
   end
 
-  def destroy
+  def delete
+    @delete = params["delete"]
+    @post = get_post_at_id
+    @paragraphs = get_paragraphs unless @post.nil?
+    render_template "blog/show.html.erb"
+  end
 
+  def destroy
+    @post = get_post_at_id
+    if params[:commit] == "Yes"
+      delete_post_at_id
+      redirect_to "/posts/unpublished"
+    else
+      redirect_to "/posts/#{@post.id}"
+    end
   end
 
   def mark_published
@@ -72,6 +104,14 @@ class PostsController < ApplicationController
 
   def get_unpublished_posts
     get_all_posts.select {|post| post.published == false}
+  end
+
+  def get_paragraphs
+    @post.body.split("\n")
+  end
+
+  def delete_post_at_id
+    get_all_posts.delete(get_post_at_id)
   end
 
   def render_by_pagination(all_posts)

@@ -62,12 +62,14 @@ class Router
     [
       get("/#{name}/new",         controller, :new),
 
-      post("/#{name}",            controller, :create),
       post("/#{name}/:id/delete", controller, :destroy), #will be DELETE in rails
-      post("/#{name}/:id",        controller, :update), #will be PUT in Rails
 
+      post("/#{name}",            controller, :create),
+      post("/#{name}/:id",        controller, :update), #will be PUT in Rails
+      get("/#{name}/:id/delete",  controller, :delete),
       get("/#{name}/:id/edit",    controller, :edit),
       get("/#{name}/:id",         controller, :show),
+
       get("/#{name}",             controller, :index),
     ]
   end
