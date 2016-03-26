@@ -1,15 +1,51 @@
 ul {
-  margin:0;
+  margin:0 auto;
+  width: 700px;
 }
 
 body {
-  background-color: #C3D7DF;
+  background-color: #EFF0D1;
+  color: #223127;
+  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+}
+
+.logo {
+  position: fixed;
+  z-index: 999;
+
+  transform: rotate(-30deg);
+  margin: 40px;
+  padding-top: 20px;
+  font-family: 'Tangeringe', cursive;
+  font-size: 3em;
+  color :#ED3F18;
+}
+
+@media (max-width: 1200px) {
+  .logo {
+    transform: rotate(0deg);
+    padding-top: 0;
+    margin: 0 20px;
+    font-size: 2em;
+  }
+}
+@media (max-width: 990px) {
+  .logo {
+    position: relative;
+
+  }
 }
 .nav {
+  position: fixed;
+  min-width: 990px;
+  top: 0;
+  left: 0;
+  width: 100%;
   padding: 0 0;
-  text-align: center;
-  background-color: #6991AC;
-  border: 1px solid #6991AC;
+  margin: 0 auto;
+  background-color: #223127;
+  border: 1px solid #223127;
 }
 
 .nav ul li {
@@ -35,31 +71,36 @@ body {
 }
 
 .new-post {
-  font-weight: bold;
-  font-size: 35px;
+  text-decoration: underline;
 }
 
 .main1 {
-  padding: 0 20%;
+  padding-top: 60px;
+  max-width: 710px;
+  margin: 0 auto;
 }
 
 .main1 h1 {
   margin-bottom: 0;
-  color :#D75C37;
+  color :#ED3F18;
 }
 .main1 h1 a{
   text-decoration: none;
-  color :#D75C37;
+  color :#ED3F18;
 }
 
 article {
-  margin-bottom: 60px;
-
+  text-align: justify;
+  margin: 25px 0;
+  padding: 0 10px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #223127;
 }
 .author {
   margin: 5px;
-  color: rgba(0,0,0,0.9);
+  color: rgba(34,49,39,0.7);
   font-size: 14px;
+  font-style: italic;
 }
 
 .publish {
@@ -67,10 +108,10 @@ article {
   font-size: 13px;
   text-decoration: none;
   padding: 6px 10px;
-  border-bottom-left-radius: 25%50%;
-  border-bottom-right-radius: 25%50%;
-  border-top-left-radius: 25%50%;
-  border-top-right-radius: 25%50%;
+  border-bottom-left-radius: 5%20%;
+  border-bottom-right-radius: 5%20%;
+  border-top-left-radius: 5%20%;
+  border-top-right-radius: 5%20%;
   background-image: linear-gradient(to bottom, #6991AC, #67727A);
 }
 
@@ -85,15 +126,35 @@ small a {
 small a:hover {
   color: rgba(0,0,0,0.4)
 }
-
 form input {
-  display: block;
-  width: 400px;
+
+}
+form input.field{
+  margin-left: 20px;
+  display: inline-block;
+  width: 200px;
   margin-bottom: 20px;
+  border: 0;
+  border-bottom: solid 1px #223127;
+  background-color: #EFF0D1;
+}
+form textarea {
+  display: block;
+  width: 500px;
+  height: 160px;
+  margin-bottom: 20px;
+  background-color: #EFF0D1;
+}
+
+form textarea.comment {
+  height: 60px;
 }
 footer {
   text-align: center;
   padding: 30px 0;
+}
+footer ul{
+  padding: 0;
 }
 footer ul li {
   margin: 0 3px;

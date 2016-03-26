@@ -5,12 +5,12 @@
   <% end %>
 
   <form action='/posts' method="post" accept-charset="utf-8" id='new-post'>
-    <label for='title'>Title</label>
-    <input type='text' name='title' id='title'/>
-    <label for='author'>Name</label>
-    <input type='text' name='author' id='author'/>
-    <label for='body'>Body</label>
-    <input type='text' name='body' id='body'/>
+    <div><label for='title'>Title:     </label>
+    <input class="field" type='text' name='title' id='title'/></div>
+    <div><label for='author'>Name:</label>
+    <input class="field" type='text' name='author' id='author'/></div>
+    <label for='body'>Post</label>
+    <textarea name='body' id='body'></textarea>
 
     <input type='submit' name='commit' id='create_post'  />
   </form>

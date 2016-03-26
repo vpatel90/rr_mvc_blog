@@ -4,15 +4,19 @@
     <meta charset="utf-8">
     <title>My Awesome Page!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,700,700italic,500italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
     <link media="screen" rel="stylesheet" href="/assets/stylesheets/application.css"  />
   </head>
   <body>
+    <h1 class="logo"> Blog Yo'Self </h1>
     <nav class="nav">
       <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/posts/published">Published Posts</a></li>
-      <li><a href="/posts/unpublished">Unpublished Posts</a></li>
-      <li class="new-post"><a href="/posts/new">New Post</a></li>
+      <a href="/"><li>Home</li></a>
+      <a href="/posts/published"><li>Published Posts</li></a>
+      <a href="/posts/unpublished"><li>Unpublished Posts</li></a>
+      <a href="/posts/new"><li class="new-post">New Post</li></a>
     </ul>
     </nav>
     <!-- Ruby will place one of my templates inside of this file, right here where I call "yield"  -->
