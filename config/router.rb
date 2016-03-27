@@ -20,6 +20,7 @@ class Router
       get('/', HomeController, :index),
 
       api_resource('api/posts', PostsAPIController),
+      api_resource('api/comments', CommentsAPIController),
       get('/posts/published', PostsController, :published),
       get('/posts/unpublished', PostsController, :unpublished),
       get('/users/logout', UsersController, :logout),

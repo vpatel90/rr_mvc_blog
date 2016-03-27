@@ -21,6 +21,9 @@ class PostsAPIController < ApplicationController
   end
 
   def destroy
+    @post = get_post_at_id
+    delete_post_at_id
+    render({message:"Successfully Deleted"}.to_json)
 
   end
   private
@@ -30,5 +33,9 @@ class PostsAPIController < ApplicationController
 
   def get_post_at_id
     get_all_posts.find {|post| post.id == params[:id].to_i}
+  end
+
+  def delete_post_at_id
+    get_all_posts.delete(get_post_at_id)
   end
 end

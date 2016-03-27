@@ -13,9 +13,10 @@ class Comment
     post.comments.unshift(self)
   end
 
-  def to_json(_ = nil)
+  def to_json( _ = nil)
     {
       id: id,
+      post_id: @post_id,
       author_fn: author_fn,
       author_ln: author_ln,
       body: body,

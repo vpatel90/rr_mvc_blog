@@ -16,7 +16,7 @@
     <input type='submit' name='commit' value="No" id='no_del_post'  />
   </form>
   <% end %>
-  <a href="users/<%= @post.user.id %>"><p class="author"><%= @post.author_fn %> <%= @post.author_ln %> </p></a>
+  <a href="/users/<%= @post.user.id %>"><p class="author"><%= @post.author_fn %> <%= @post.author_ln %> </p></a>
   <small class='time'>&#x1f552;<%= @post.time %></small>
     <% @paragraphs.each do |para| %>
       <p class="blog-post"><%= para %> </p>
