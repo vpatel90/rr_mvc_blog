@@ -5,7 +5,7 @@
   <% @rendered_posts.each do |post| %>
   <article>
     <h1> <a href="/posts/<%= post.id %>"> <%= post.title %> </a> </h1>
-    <p class="author"><%= post.author_fn %> <%= post.author_ln %> </p>
+    <a href="users/<%= post.user.id %>"><p class="author"><%= post.author_fn %> <%= post.author_ln %> </p></a>
     <small class='time'>&#x1f552;<%= post.time %></small>
     <% if @home %>
       <p> <%= post.body[0...300] %>...
