@@ -1,47 +1,44 @@
-# Request / Response MVC!
-
-* Fork this repo
-* Clone this repo
-* Create your controllers in `app/controllers`
-  * Make sure they all inherit from `ApplicationController`
-* Create your routes in `config/router.rb`
-* Test out all the routes from the assignment using Postman
-* All responses should be in JSON format.
+# Request / Response MVC! Blog
 
 
 * Run the server with `ruby bin/server.rb`
   * Please note: The server will need to be restarted every time you change your code.
-* The server file _should_ be loading all your files in `app/controllers` and `app/models`. It has also loaded `pry` and `json` for you.
+
+* You can use the Postman app for any requests that are not `GET` or `POST` requests. Although, you can use almost all functionality through a browser
 
 
-* You will be using the Postman app for any requests that are not `GET` requests. 
-* All `GET` requests can be displayed directly in the browser by navigating to the URL requested.
-* In the assignment instructions, if the type of the request is not specified, it can be assumed to be `GET`.
+	![Image of Home Page](http://i.imgur.com/dwqahqr.png?1 =450x)
 
 
-## Defining Routes
 
-- In `config/router.rb` you will write your routes using the private methods that are provided.
-- If a route takes an id, you can't create a route for every possible number, so you will use a 'dynamic route'.
-- A 'dynamic route' looks like this `:id` and the router will look for anything that fits inside of that.
-- If you had a route defined like this `get('/tweets/:id, TweetsController, :show)` then it would match these urls:
-  - `/tweets/1`
-  - `/tweets/99999`
-  - `/tweets/foobar`
-  - `/tweets/2/edit` <- You probably dont want your show route to match your edit route and thats why..
-- **Orders matters** with routes in the route file. They are searched from top to bottom and the search stops the first time the router finds a valid route.
-- So your _most specific_ routes need to go first.
+## Sending a Request
+### Users
+* `http://localhost:3001/users/new` Allows you to create a new user account - First Name and Last Name
+	* Sorry no username support sooo, if someone else has your same first and last name you are out of luck :(
+	* Creating a new account automatically logs you into that account
+	* Can also be accessed via button
+* `http://localhost:3001/users/new`  Allows you to login with your account
+	* Several pregenerated accounts with sample posts
+	* Can also be accessed via button
+* `http://localhost:3001/users/id` Displays user profile for user with that id
+
+### Posts
+* `http://localhost:3001/` or `http://localhost:3001/posts`Returns all posts
+* `http://localhost:3001/posts/1` Displays post at that ID
+	* You can also click on Post title to view the post
+
+* `http://localhost:3001/posts/new` Allows you to create a new blog post
+* `http://localhost:3001/posts/published` Displays all published posts
+* `http://localhost:3001/posts/unpublished` Displays all unpublished posts
+* Unpublished Posts can be published, edited or deleted if the logged in user is the author of that post
 
 
-## Creating a controller
+### Comments
+* There is a comment section attached to every published post
 
-- All controllers should exist inside of `app/controllers/` and their name should follow a pattern. `tweets_controller.rb`
-- Notice that 'tweets' is plural.
-- The class must also inherit from `ApplicationController` to work properly with the router.
-- An empty `tweets_controller.rb` would look something like this:
-
-```rb
-class TweetsController < ApplicationController
-  # your actions go here...
-end
-```
+### API
+* `http://localhost:3001/api/posts` displays all posts in JSON
+* `http://localhost:3001/api/posts/id` displays single posts in JSON
+* Use Postman for PUT, POST and DELETE requests
+* `POST http://localhost:3001/api/post`For POST - also pass 'author_fn' and 'author_ln' as parameters and system will dynamically create a user or use an existing user for that Post
+* `PUT http://localhost:3001/api/post/id` PUT will require 'title' and 'body' params

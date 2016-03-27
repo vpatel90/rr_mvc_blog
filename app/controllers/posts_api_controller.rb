@@ -16,6 +16,8 @@ class PostsAPIController < ApplicationController
 
   def update
     post = get_post_at_id
+    post.title, post.body = params["title"], params["body"]
+    render({message:"Successfully Updated", post:post}.to_json)
   end
 
   def destroy
