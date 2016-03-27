@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @home = true
     @all_posts = get_all_posts
     @total = (@all_posts.size / 10) + 1
     @start = 0

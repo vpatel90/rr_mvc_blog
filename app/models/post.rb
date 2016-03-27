@@ -4,7 +4,7 @@ class Post
   def initialize(title, user, body)
     @id = $id_p
     $id_p += 1
-    @time = Time.now
+    @time = GetTime.now
     @title = title
     @user = user
     @author_fn = user.first_name

@@ -17,6 +17,7 @@
   </form>
   <% end %>
   <p class="author"><%= @post.author_fn %> <%= @post.author_ln %> </p>
+  <small class='time'>&#x1f552;<%= @post.time %></small>
     <% @paragraphs.each do |para| %>
       <p class="blog-post"><%= para %> </p>
     <% end %>
@@ -26,17 +27,21 @@
     <h4>Your post could not be saved. Please try again</h4>
     <% end %>
     <h3> Comments </h3>
-    <form action="/comments" method="post" accept-charset="utf-8" id='new-comment'>
-      <div><label for='author'>Name:</label>
-      <input class="field" type='text' name='author' id='author'/></div>
-      <label for='body'>Comment</label>
-      <textarea class="comment" name='body' id='body'></textarea>
-      <input type='hidden' name='pid' value="<%= @post.id %>" />
-      <input type='submit' name='commit' id='create_comment' />
-    </form>
-    <ul>
+    <% if $main_user.nil? %>
+    <h3> Please <a href="/users/login?page=posts/<%= @post.id %>">Login</a> to Comment </h3>
+    <% else %>
+      <form action="/comments" method="post" accept-charset="utf-8" id='new-comment'>
+        <label for='body'>Comment</label>
+        <textarea class="comment" name='body' id='body'></textarea>
+        <input type='hidden' name='pid' value="<%= @post.id %>" />
+        <input type='submit' name='commit' id='create_comment' />
+      </form>
+    <% end %>
+    <ul class="post-comments">
       <% @post.comments.each do |comment| %>
-      <li> <div> <%= comment.author %> - <%= comment.time %> </div> <%= comment.body %> </li>
+      <li> <div> <%= comment.author_fn %>  <%= comment.author_ln %>
+          <small class='time'>&#x1f552;<%= comment.time %></small> </div>
+        > <%= comment.body %> </li>
       <% end %>
     </ul>
   <% end %>

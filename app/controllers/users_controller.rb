@@ -35,6 +35,7 @@ class UsersController < ApplicationController
 
   def login
     @error = params["error"]
+    @page = params["page"]
     render_template "blog/login.html.erb"
   end
 
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
       redirect_to "/users/login?error=true"
     else
       $main_user = @user
-      redirect_to "/"
+      redirect_to "/#{params[:page]}"
     end
   end
 

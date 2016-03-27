@@ -10,7 +10,11 @@ require_relative '../app/controllers/application_controller'
 require_relative '../lib/all'
 
 $main_user = nil
-
+module GetTime
+  def GetTime.now
+    "#{Time.now.strftime('%x')} at #{Time.now.strftime('%r')}"
+  end
+end
 module App
   # Place all data here inside of a method
   def App.tweets
@@ -103,8 +107,8 @@ end
 
 AllPosts.posts.each do |post|
   post.published = true if rand(1..3) == 2
-  rand(1..3).times do
-    Comment.new("hi guy", Lorem::C1.sample, post)
+  rand(1..20).times do
+    Comment.new(AllUsers.users.sample, Lorem::C1.sample, post)
   end
 end
 

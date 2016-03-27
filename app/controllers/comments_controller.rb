@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     if invalid_input?
       redirect_to "/posts/#{post.id}?error=true"
     else
-      Comment.new(params[:author], params[:body], post)
+      Comment.new($main_user, params[:body], post)
       redirect_to "/posts/#{post.id}"
     end
   end

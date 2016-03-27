@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    @home = true
     all_posts = get_all_posts
     render_by_pagination(all_posts)
   end

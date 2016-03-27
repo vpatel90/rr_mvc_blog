@@ -5,9 +5,12 @@
   <% @rendered_posts.each do |post| %>
   <article>
     <h1> <a href="/posts/<%= post.id %>"> <%= post.title %> </a> </h1>
-    <p class="author"><%= post.author_fn %> <%= post.author_ln %></p>
-    <p> <%= post.body[0...300] %>...
-      <small> <a href="/posts/<%= post.id %>"> read more </a> </small> </p>
+    <p class="author"><%= post.author_fn %> <%= post.author_ln %> </p>
+    <small class='time'>&#x1f552;<%= post.time %></small>
+    <% if @home %>
+      <p> <%= post.body[0...300] %>...
+        <small> <a href="/posts/<%= post.id %>"> read more </a> </small> </p>
+    <% end %>
   </article>
   <% end %>
   <footer>
