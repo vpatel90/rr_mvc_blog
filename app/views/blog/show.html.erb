@@ -1,10 +1,12 @@
 <main class="main1">
   <article>
-    <% if @post.published == false %>
-    <a class="publish" href="/posts/<%= @post.id %>/complete"> Publish </a>
-    <% link = "/posts/#{@post.id}/edit" %>
-    <a class="publish" id="edit" href="/posts/<%= @post.id %>/edit"> Edit </a>
-    <a class="publish" id="delete" href="/posts/<%= @post.id %>/delete?delete=true"> Delete </a>
+    <% unless @post.published == true %>
+      <% if @post.user == $main_user %>
+        <a class="publish" href="/posts/<%= @post.id %>/complete"> Publish </a>
+        <% link = "/posts/#{@post.id}/edit" %>
+        <a class="publish" id="edit" href="/posts/<%= @post.id %>/edit"> Edit </a>
+        <a class="publish" id="delete" href="/posts/<%= @post.id %>/delete?delete=true"> Delete </a>
+      <% end %>
     <% end %>
   <h1> <%= @post.title %> </h1>
   <% if @delete == "true" %>

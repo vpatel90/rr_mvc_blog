@@ -1,6 +1,6 @@
 ul {
   margin:0 auto;
-  width: 900px;
+  width: 700px;
 }
 
 body {
@@ -15,9 +15,9 @@ body {
   text-decoration: none;
   position: fixed;
   z-index: 999;
-
+  top: 50px;
   transform: rotate(-30deg);
-  margin: 40px;
+  margin: 30px;
   padding-top: 20px;
   font-family: 'Tangeringe', cursive;
   font-size: 3em;
@@ -27,6 +27,7 @@ body {
 @media (max-width: 1200px) {
   .logo {
     transform: rotate(0deg);
+    top: 0;
     padding-top: 0;
     margin: 0 20px;
     font-size: 2em;
@@ -48,6 +49,37 @@ body {
   background-color: #223127;
   border: 1px solid #223127;
 }
+
+.nav2 {
+  position:fixed;
+  top: 57px;
+  right: 10px;
+  zindex: 999;
+  padding: 10px 25px;
+}
+
+.nav2 a {
+  color: #F5F5F5;
+  text-decoration: none;
+}
+
+.nav2 a li {
+  display: inline-block;
+  color: #F5F5F5;
+  font-size: 13px;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-bottom-left-radius: 5%20%;
+  border-bottom-right-radius: 5%20%;
+  border-top-left-radius: 5%20%;
+  border-top-right-radius: 5%20%;
+  background-image: linear-gradient(to bottom, #889FA6, #223127);
+}
+
+.nav2 a li:hover {
+  background-image: linear-gradient(to top, #889FA6, #223127);
+}
+
 
 .nav ul li {
   padding: 15px;
@@ -95,6 +127,9 @@ body {
   color :#ED3F18;
 }
 
+.main1 h2, h3 {
+  text-align: center;
+}
 article {
   text-align: justify;
   margin: 25px 0;

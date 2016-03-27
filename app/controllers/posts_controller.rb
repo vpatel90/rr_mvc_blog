@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    unless params[:commit] == "no" || params[:commit] == "yes"
+    unless params[:commit] == "No" || params[:commit] == "Yes"
       if invalid_input?
         redirect_to "/posts/#{params[:id]}/edit?error=true"
       else
@@ -52,6 +52,7 @@ class PostsController < ApplicationController
         redirect_to "/posts/#{post.id}"
       end
     else
+      ""
     end
 
   end
