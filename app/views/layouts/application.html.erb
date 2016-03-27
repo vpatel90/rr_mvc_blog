@@ -17,8 +17,15 @@
       <a href="/posts/published"><li>Published Posts</li></a>
       <a href="/posts/unpublished"><li>Unpublished Posts</li></a>
       <a href="/posts/new"><li class="new-post">New Post</li></a>
+      <% if $main_user.nil? %>
+        <a href="/users/new"><li>Sign Up</li></a>
+        <a href="/users/login"><li>Login</li></a>
+      <% else %>
+        <a href="/users/logout"><li> Log Out</li></a>
+      <% end %>
     </ul>
     </nav>
+
     <!-- Ruby will place one of my templates inside of this file, right here where I call "yield"  -->
     <%= yield %>
   </body>

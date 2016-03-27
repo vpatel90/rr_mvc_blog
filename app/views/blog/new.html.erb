@@ -1,28 +1,28 @@
 <main class="main1" id="new">
   <h2>Create a new Post</h2>
-  <% if @post %>
-  <% action = "/posts/#{@post.id}" %>
-  <% title = @post.title %>
-  <% author = @post.author %>
-  <% body = @post.body %>
+  <% if $main_user.nil? %>
+  <h3> Please <a href="/users/login">Login</a> to Post </h3>
   <% else %>
-  <% action = '/posts' %>
-  <% title = "" %>
-  <% author = "" %>
-  <% body = "" %>
-  <% end %>
-  <% if @error == "true" %>
-  <h3>Your post could not be saved. Please try again</h3>
-  <% end %>
+    <% if @post %>
+    <% action = "/posts/#{@post.id}" %>
+    <% title = @post.title %>
+    <% body = @post.body %>
+    <% else %>
+    <% action = '/posts' %>
+    <% title = "" %>
+    <% body = "" %>
+    <% end %>
+    <% if @error == "true" %>
+    <h3>Your post could not be saved. Please try again</h3>
+    <% end %>
 
-  <form action='<%= action %>' method="post" accept-charset="utf-8" id='new-post'>
-    <div><label for='title'>Title:     </label>
-    <input class="field" type='text' name='title' value="<%= title %>" id='title'/></div>
-    <div><label for='author'>Name:</label>
-    <input class="field" type='text' name='author' value="<%= author %>" id='author'/></div>
-    <label for='body'>Post</label>
-    <textarea name='body' id='body'><%= body %></textarea>
+    <form action='<%= action %>' method="post" accept-charset="utf-8" id='new-post'>
+      <div><label for='title'>Title:     </label>
+      <input class="field" type='text' name='title' value="<%= title %>" id='title'/></div>
+      <label for='body'>Post</label>
+      <textarea name='body' id='body'><%= body %></textarea>
 
-    <input type='submit' name='commit' id='create_post'  />
-  </form>
+      <input type='submit' name='commit' id='create_post'  />
+    </form>
+  <% end %>
 </main>

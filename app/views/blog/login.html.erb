@@ -1,0 +1,14 @@
+<main class="main1" id="new">
+  <h2>Enter Login Details</h2>
+  <% if @error == "true" %>
+  <h3>Invalid login. Please try again</h3>
+  <% end %>
+  <form action='/users/set_user' method="post" accept-charset="utf-8" id='new-user'>
+    <div><label for='author'>First Name:</label>
+    <input class="field" type='text' name='author_fn' id='author-fn'/></div>
+    <div><label for='author'>Last Name:</label>
+    <input class="field" type='text' name='author_ln' id='author-ln'/></div>
+
+    <input type='submit' name='commit' id='create_user'  />
+  </form>
+</main>

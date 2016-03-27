@@ -14,7 +14,7 @@
     <input type='submit' name='commit' value="No" id='no_del_post'  />
   </form>
   <% end %>
-  <p class="author"><%= @post.author %> </p>
+  <p class="author"><%= @post.author_fn %> <%= @post.author_ln %> </p>
     <% @paragraphs.each do |para| %>
       <p class="blog-post"><%= para %> </p>
     <% end %>

@@ -18,15 +18,20 @@ class Router
     [
       get('/posts/:id/complete', PostsController, :mark_published),
       get('/', HomeController, :index),
+
       api_resource('api/posts', PostsAPIController),
       get('/posts/published', PostsController, :published),
       get('/posts/unpublished', PostsController, :unpublished),
+      get('/users/logout', UsersController, :logout),
+      get('/users/login', UsersController, :login),
+      post('/users/set_user', UsersController, :set_user),
 
 
       resource('posts', PostsController),
 
 
       resource('comments', CommentsController),
+      resource('users', UsersController),
 
 
       post('/tweets', TweetsController, :create),

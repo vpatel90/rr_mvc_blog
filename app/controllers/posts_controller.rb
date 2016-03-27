@@ -26,14 +26,14 @@ class PostsController < ApplicationController
     if invalid_input?
       redirect_to "/posts/new?error=true"
     else
-      new_post = Post.new(params[:title], params[:author], params[:body])
+      new_post = Post.new(params[:title], $main_user, params[:body])
       get_all_posts << new_post
       redirect_to "/posts/#{new_post.id}"
     end
   end
 
   def invalid_input?
-    params[:title].empty? || params[:author].empty? || params[:body].empty?
+    params[:title].empty? || params[:body].empty?
   end
 
   def edit
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
         redirect_to "/posts/#{params[:id]}/edit?error=true"
       else
         post = get_post_at_id
-        post.title, post.author, post.body = params[:title], params[:author], params[:body]
+        post.title, post.body = params[:title], params[:body]
         redirect_to "/posts/#{post.id}"
       end
     else

@@ -1,3 +1,4 @@
+
 module Lorem
   L = "Godard you probably haven't heard of them pitchfork everyday carry. Williamsburg banjo flexitarian, raw denim polaroid sartorial man bun cliche cardigan master cleanse cred you probably haven't heard of them narwhal. XOXO iPhone farm-to-table selfies post-ironic chicharrones austin, pickled plaid fixie tattooed VHS skateboard. Etsy 90's hella schlitz helvetica, occupy biodiesel. Quinoa gastropub kombucha, hoodie street art synth biodiesel meh pug forage. Fap offal chambray tote bag, hoodie fixie gochujang blog +1 wayfarers hammock kogi health goth franzen. Whatever yr neutra, taxidermy pitchfork wolf organic DIY.\n
 
@@ -35,4 +36,5 @@ Venmo chia messenger bag, tofu fap tilde distillery. Sriracha letterpress brunch
 
 Polaroid drinking vinegar artisan, shabby chic echo park hashtag cronut banjo intelligentsia aesthetic portland man bun. Marfa migas tote bag, tofu pitchfork butcher iPhone pinterest food truck humblebrag before they sold out. Schlitz wayfarers hashtag aesthetic. Tofu cred health goth, affogato artisan hoodie stumptown gochujang. Gochujang sartorial distillery migas biodiesel whatever microdosing, twee lumbersexual keffiyeh. Man bun kinfolk single-origin coffee kogi intelligentsia tote bag normcore cliche, aesthetic health goth cronut migas bitters. Selfies selvage truffaut, street art cray synth chambray asymmetrical schlitz mustache tattooed fanny pack blog iPhone normcore."
   C1 = ["great post", "lrn to rite dipsh!t", "wow amazing!", "great insight", "you are the bomb!", "teach me how to do it", "I had no idea how lame blogs are", "I need a beer"]
+
 end
