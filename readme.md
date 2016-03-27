@@ -7,7 +7,7 @@
 * You can use the Postman app for any requests that are not `GET` or `POST` requests. Although, you can use almost all functionality through a browser
 
 
-	![Image of Home Page](http://i.imgur.com/dwqahqr.png?1 =450x)
+	![Image of Home Page](http://i.imgur.com/0SFahvk.png?1 =650x)
 
 
 
@@ -31,6 +31,9 @@
 * `http://localhost:3001/posts/published` Displays all published posts
 * `http://localhost:3001/posts/unpublished` Displays all unpublished posts
 * Unpublished Posts can be published, edited or deleted if the logged in user is the author of that post
+
+	![Image of Unpublished Blog Page](http://i.imgur.com/qmQRmNw.png?1?1 =650x)
+
 
 
 ### Comments

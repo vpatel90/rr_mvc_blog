@@ -25,6 +25,7 @@
         <a href="/users/login"><li>Login</li></a>
         <a href="/users/new"><li> Sign Up</li></a>
       <% else %>
+        <small><%= $main_user.first_name %> <%= $main_user.last_name %></small>
         <a href="/users/logout"><li> Log Out</li></a>
       <% end %>
     </nav>
