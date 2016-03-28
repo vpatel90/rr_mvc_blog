@@ -34,6 +34,8 @@ module AllUsers
       User.new("Vivek", "Patel"),
       User.new("Abby", "Hunter"),
       User.new("Kat", "Bianco"),
+      User.new("Andrew", "Montgomery"),
+      User.new("Van", "Anderson"),
       User.new("Tyrion", "Lannister"),
       User.new("Jon", "Snow"),
       User.new("Arya", "Stark"),

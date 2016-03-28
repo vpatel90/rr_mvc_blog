@@ -41,7 +41,7 @@
       <% @post.comments.each do |comment| %>
       <li> <div> <%= comment.author_fn %>  <%= comment.author_ln %>
           <small class='time'>&#x1f552;<%= comment.time %></small> </div>
-        > <%= comment.body %> </li>
+        &#9654; <%= comment.body %> </li>
       <% end %>
     </ul>
   <% end %>

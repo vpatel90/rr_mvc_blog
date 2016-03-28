@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @home = true
+    @url = "/posts"
     all_posts = get_all_posts
     render_by_pagination(all_posts)
   end
@@ -83,11 +84,13 @@ class PostsController < ApplicationController
 
   def published
     all_posts = get_published_posts
+    @url = "/posts/published"
     render_by_pagination(all_posts)
   end
 
   def unpublished
     all_posts = get_unpublished_posts
+    @url = "/posts/unpublished"
     render_by_pagination(all_posts)
   end
 

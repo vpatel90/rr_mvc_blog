@@ -4,7 +4,7 @@ ul {
 }
 
 body {
-  background-color: #EFF0E2;
+  background-color: #F5F5F5;
   color: #223127;
   line-height: 1.6;
   font-family: 'Roboto', sans-serif;
@@ -21,7 +21,7 @@ body {
   padding-top: 20px;
   font-family: 'Tangeringe', cursive;
   font-size: 3em;
-  color :#ED3F18;
+  color :#EC583A;
 }
 
 @media (max-width: 1200px) {
@@ -120,18 +120,18 @@ body {
 
 .main1 h1 {
   margin-bottom: 0;
-  color :#ED3F18;
+  color :#EC583A;
 }
 .main1 h1 a{
   text-decoration: none;
-  color :#ED3F18;
+  color :#EC583A;
 }
 
 .main1 h2, h3 {
   text-align: center;
 }
 article {
-  text-align: justify;
+  text-align: left;
   margin: 25px 0;
   padding: 0 10px;
   padding-bottom: 25px;
@@ -194,18 +194,19 @@ form input.field{
   margin-bottom: 20px;
   border: 0;
   border-bottom: solid 1px #223127;
-  background-color: #EFF0E2;
+  background-color: #F5F5F5;
 }
 form textarea {
   display: block;
   width: 500px;
   height: 560px;
   margin-bottom: 20px;
-  background-color: #EFF0E2;
+  background-color: #F5F5F5;
 }
 
 form textarea.comment {
   height: 60px;
+  width: 100%;
 }
 
 .post-comments {
