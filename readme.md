@@ -7,7 +7,7 @@
 * You can use the Postman app for any requests that are not `GET` or `POST` requests. Although, you can use almost all functionality through a browser
 
 
-	![Image of Home Page](http://i.imgur.com/0SFahvk.png?1 =650x)
+	![Image of Home Page](http://i.imgur.com/iXA53Bi.png?1 =650x)
 
 
 
@@ -32,7 +32,10 @@
 * `http://localhost:3001/posts/unpublished` Displays all unpublished posts
 * Unpublished Posts can be published, edited or deleted if the logged in user is the author of that post
 
-	![Image of Unpublished Blog Page](http://i.imgur.com/qmQRmNw.png?1?1 =650x)
+	![Image of Unpublished Blog Page](http://i.imgur.com/LKzXfHw.png?1 =650x)
+
+
+	![Image of Unpublished Blog Page](http://i.imgur.com/in6Uaj7.png?1 =650x)
 
 
 
@@ -45,3 +48,4 @@
 * Use Postman for PUT, POST and DELETE requests
 * `POST http://localhost:3001/api/post`For POST - also pass 'author_fn' and 'author_ln' as parameters and system will dynamically create a user or use an existing user for that Post
 * `PUT http://localhost:3001/api/post/id` PUT will require 'title' and 'body' params
+* `DELETE http://localhost:3001/api/post/id` DELETE will delete post at id
