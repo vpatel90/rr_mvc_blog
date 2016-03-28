@@ -48,7 +48,7 @@ module AllUsers
       User.new("Maeby", "Funke"),
       User.new("Peter", "Griffin"),
       User.new("Steve", "Smith"),
-      User.new("Rick", "Morty"),
+      User.new("Rick", "Sanchez"),
       User.new("Bernie", "Sanders"),
       User.new("Hillary", "Clinton"),
       User.new("Ted", "Cruz"),
